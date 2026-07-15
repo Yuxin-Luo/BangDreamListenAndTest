@@ -66,13 +66,6 @@ export function setLocale(locale) {
   }
 }
 
-export function cycleLocale() {
-  // 顺时针循环：zh → en → ja → zh
-  const order = ['zh', 'en', 'ja'];
-  const next = order[(order.indexOf(_locale) + 1) % order.length];
-  setLocale(next);
-}
-
 export function t(key, vars) {
   initI18n();
   const parts = key.split('.');
@@ -104,7 +97,9 @@ export function applyTranslations() {
   document.querySelectorAll('[data-i18n-title]').forEach((el) => {
     el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
   });
-  const sw = document.querySelector('[data-i18n-lang-switch]');
-  if (sw) sw.textContent = t('language.switchTo');
+  // highlight the active language pill
+  document.querySelectorAll('[data-locale]').forEach((el) => {
+    el.classList.toggle('active', el.getAttribute('data-locale') === _locale);
+  });
   document.dispatchEvent(new CustomEvent('i18n:applied', { detail: { locale: _locale } }));
 }

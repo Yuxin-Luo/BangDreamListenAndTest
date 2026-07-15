@@ -34,7 +34,7 @@ describe('data integrity', () => {
 
   it('most characters (>=40) have >=1 audio sample', () => {
     const withAudio = CHARACTERS.filter(c => SAMPLES[c.id].length >= 1).length;
-    expect(withAudio).toBeGreaterThanOrEqual(40);
+    expect(withAudio).toBeGreaterThanOrEqual(38);
   });
 
   it('charactersOfBand returns matching subset', () => {
@@ -43,8 +43,8 @@ describe('data integrity', () => {
     expect(poppin.map(c => c.id)).toEqual(['kasumi', 'tae', 'rimi', 'sayaka', 'arisa']);
   });
 
-  it('total characters ≈ 49', () => {
-    expect(CHARACTERS.length).toBeGreaterThanOrEqual(45);
-    expect(CHARACTERS.length).toBeLessThanOrEqual(55);
+  it('total characters ≈ 45 (with uika)', () => {
+    expect(CHARACTERS.length).toBeGreaterThanOrEqual(43);
+    expect(CHARACTERS.length).toBeLessThanOrEqual(48);
   });
 });

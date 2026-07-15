@@ -76,7 +76,7 @@ const SAMPLES_MAP = {
   mutsumi: [],
   umiri:   [],
   nyamu:   [],
-  togawa:  [],
+  uika:    [],
 };
 
 /**

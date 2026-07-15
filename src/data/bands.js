@@ -38,9 +38,9 @@ export const BANDS = [
     icon: 'pastel-palettes.png',
     members: ['aya', 'chisato', 'maya', 'eve', 'hina'],
     desc: {
-      zh: '以偶像身份活动的乐队。',
-      en: 'A band that also performs as idols.',
-      ja: 'アイドル活動も行うバンド。',
+      zh: '以"王道偶像"为主题的青春乐队，主打流行甜美风格。',
+      en: 'A youth band themed on classic idol aesthetics, featuring sweet pop sounds.',
+      ja: '王道アイドルをテーマにした青春バンド。甘くポップな楽曲が特徴。',
     },
   },
   {
@@ -60,9 +60,9 @@ export const BANDS = [
     icon: 'hhw.png',
     members: ['kokoro', 'kaoru', 'hagumi', 'kanon', 'misaki'],
     desc: {
-      zh: '以"让世界幸福"为目标的欢乐乐队。',
-      en: 'A cheerful band aiming to make the world happy.',
-      ja: '世界を幸せにすることを目標にする明るいバンド。',
+      zh: '以"让世界幸福"为目标的欢乐乐队，融合视频直播与流行元素。',
+      en: 'A cheerful band on a mission to make the world happy, blending live-streaming with pop.',
+      ja: '「世界を幸せにする」を目標に、配信とポップスを融合させた明るいバンド。',
     },
   },
   {
@@ -93,20 +93,20 @@ export const BANDS = [
     icon: 'mygo.png',
     members: ['anon', 'tomori', 'raana', 'soyo', 'taki'],
     desc: {
-      zh: "《BanG Dream! It's MyGO!!!!!》登场乐队。",
-      en: "Band from BanG Dream! It's MyGO!!!!!",
-      ja: "『BanG Dream! It's MyGO!!!!!』登場バンド。",
+      zh: '由高松灯组建的青春乐队，以细腻且带有冲突感的原创曲风著称。',
+      en: 'A youth band formed by Takamatsu Tomori, known for delicate yet conflicted original music.',
+      ja: '高松灯が結成した青春バンド。繊細さと衝突感を併せ持つオリジナル楽曲で知られる。',
     },
   },
   {
     id: 'ave-mujica',
     name: { zh: 'Ave Mujica', en: 'Ave Mujica', ja: 'Ave Mujica' },
     icon: 'ave-mujica.png',
-    members: ['sakiko', 'mutsumi', 'umiri', 'nyamu', 'togawa'],
+    members: ['sakiko', 'mutsumi', 'umiri', 'nyamu', 'uika'],
     desc: {
-      zh: '《BanG Dream! Ave Mujica》登场乐队。',
-      en: 'Band from BanG Dream! Ave Mujica.',
-      ja: '『BanG Dream! Ave Mujica』登場バンド。',
+      zh: '以丰川祥子为中心的神秘女子乐队，融合戏剧元素与哥特金属风格。',
+      en: 'A mysterious girls\' band centered on Togawa Sakiko, blending theatrical elements with gothic metal.',
+      ja: '豊川祥子を中心とした神秘的なガールズバンド。演劇的な要素とゴシックメタルを融合させる。',
     },
   },
 ];

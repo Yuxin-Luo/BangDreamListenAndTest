@@ -3,7 +3,6 @@ export default {
     title: 'BanG Dream 声でキャラクター当て',
   },
   language: {
-    switchTo: '日本語に切替',
     label: '日',
   },
   tab: {

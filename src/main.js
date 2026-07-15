@@ -18,12 +18,13 @@ function showBootError(err) {
 
 async function boot() {
   try {
-    const { initI18n, applyTranslations, cycleLocale } = await import('./i18n/index.js');
+    const { initI18n, applyTranslations, setLocale, getLocale } = await import('./i18n/index.js');
     initI18n();
     applyTranslations();
 
-    const sw = document.querySelector('[data-i18n-lang-switch]');
-    if (sw) sw.addEventListener('click', cycleLocale);
+    document.querySelectorAll('[data-locale]').forEach((btn) => {
+      btn.addEventListener('click', () => setLocale(btn.getAttribute('data-locale')));
+    });
 
     const { initApp } = await import('./ui/app.js');
     const root = document.getElementById('app');
