@@ -72,18 +72,21 @@ export function playSample(charId, sampleIdx, opts = {}) {
     return Promise.resolve();
   }
 
-  // Abort previous
+  // Abort previous (pause + drop reference + call onEnd to release state)
   _stopActive();
 
   const audio = new Audio();
   audio.preload = 'auto';
   audio.src = url;
+  // Force the element to start from the beginning so a cached/reused
+  // element doesn't fire 'ended' immediately on the next play().
+  try { audio.currentTime = 0; } catch {}
 
+  let _settled = false;
   return new Promise((resolve) => {
-    let settled = false;
     const finalize = () => {
-      if (settled) return;
-      settled = true;
+      if (_settled) return;
+      _settled = true;
       if (_activeAudio === audio) {
         _activeAudio = null;
         _activeHandlers = null;
@@ -109,9 +112,15 @@ export function playSample(charId, sampleIdx, opts = {}) {
     _activeHandlers = { onEnd, onNotFound };
 
     audio.play().catch(err => {
-      // Autoplay policy or network failure
+      // Autoplay policy or network failure.
+      // NotFound errors fire onNotFound; other rejections (NotAllowedError
+      // on rapid replay, etc.) just bail out cleanly without disturbing state.
+      const isNotFound = err && (
+        err.name === 'NotFoundError' ||
+        /NotFound/i.test(err.message || '')
+      );
       console.warn('[audio] play() rejected:', err);
-      if (onNotFound) onNotFound(charId, idx);
+      if (isNotFound && onNotFound) onNotFound(charId, idx);
       finalize();
     });
   });

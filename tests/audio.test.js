@@ -144,6 +144,37 @@ describe('audio engine — stop()', () => {
     expect(onEnd1).toHaveBeenCalledOnce();
     expect(lastAudio.src).toMatch(/rimi[\/\\]1\.mp3$/);
   });
+
+  it('survives 5 sequential play→ended cycles on the same char', async () => {
+    const { playSample } = await import('../src/core/audio.js');
+    const onEnd = vi.fn();
+    for (let i = 0; i < 5; i++) {
+      const p = playSample('kasumi', 1, { onEnd });
+      // Always fires clean 'ended'
+      lastAudio.fire('ended');
+      await p;
+    }
+    expect(onEnd).toHaveBeenCalledTimes(5);
+  });
+
+  it('play→ended→stop→play does not lose audio reference', async () => {
+    const { playSample, stop } = await import('../src/core/audio.js');
+    const onEnd = vi.fn();
+    // Cycle 1: play, ended
+    let p = playSample('kasumi', 1, { onEnd });
+    lastAudio.fire('ended');
+    await p;
+    // Cycle 2: play, stop (user clicks a different action)
+    playSample('kasumi', 1, { onEnd });
+    stop();
+    // Cycle 3: play again — should still create a fresh audio
+    const before = audioInstances.length;
+    p = playSample('kasumi', 1, { onEnd });
+    expect(audioInstances.length).toBe(before + 1);
+    expect(lastAudio.paused).toBe(false);
+    lastAudio.fire('ended');
+    await p;
+  });
 });
 
 describe('audio engine — hasSamples()', () => {

@@ -52,3 +52,97 @@ describe('app — band tabs', () => {
     expect(fn).toHaveBeenCalledWith('afterglow');
   });
 });
+
+describe('app — play button after retry', () => {
+  beforeEach(async () => {
+    document.body.innerHTML = '<div id="app"></div>';
+    const quizMod = await import('../src/core/quiz.js');
+    quizMod._reset();
+  });
+
+  it('play button is disabled after answering, re-enabled after retry', async () => {
+    const { initApp } = await import('../src/ui/app.js');
+    const { newQuestion, playCurrent, pick } = await import('../src/core/quiz.js');
+    const root = document.getElementById('app');
+    initApp(root);
+
+    // Start a question and reach answered state by picking a card.
+    // First: click "play" to start the round (creates a question if idle).
+    const playBtn = root.querySelector('[data-role="play-current"]');
+    expect(playBtn.disabled).toBe(false);
+    playBtn.click();
+    // After clicking, canPlay is still true (phase=playing → canPlay()=true only when idle/awaitPick,
+    // so this is set before playCurrent flips to playing). Simulate audio end.
+    const mod = await import('../src/core/quiz.js');
+    mod._simulateAudioEnded();
+
+    // Pick any character (correct or wrong) → phase=answered → play button disabled.
+    const grid = root.querySelector('[data-role="char-grid"]');
+    const option = grid.querySelector('[data-role="char-option"]');
+    option.click();
+    expect(root.querySelector('[data-role="play-current"]').disabled).toBe(true);
+
+    // Click retry → phase=awaitPick → play button should re-enable.
+    const retryBtn = root.querySelector('[data-role="retry"]');
+    retryBtn.click();
+    expect(root.querySelector('[data-role="play-current"]').disabled).toBe(false);
+  });
+
+  it('play button re-enables after audio ends naturally (not via retry)', async () => {
+    const { initApp } = await import('../src/ui/app.js');
+    const { _simulateAudioEnded } = await import('../src/core/quiz.js');
+    const root = document.getElementById('app');
+    initApp(root);
+
+    const playBtn = root.querySelector('[data-role="play-current"]');
+    expect(playBtn.disabled).toBe(false); // initial: idle
+
+    playBtn.click(); // → phase=playing, _updatePlayButton disables
+    expect(playBtn.disabled).toBe(true);
+
+    // Simulate natural audio end — quiz state flips, then .then chain runs
+    // and _updatePlayButton re-enables the button.
+    _simulateAudioEnded();
+    await new Promise((r) => setTimeout(r, 0)); // flush microtasks
+    expect(playBtn.disabled).toBe(false); // re-enabled after natural audio end
+  });
+});
+
+describe('app — same-char multi-retry flow (issue 1 reproduction)', () => {
+  beforeEach(async () => {
+    document.body.innerHTML = '<div id="app"></div>';
+    const quizMod = await import('../src/core/quiz.js');
+    quizMod._reset();
+  });
+
+  it('user can play 5x after 5x retry on the same char (no state freeze)', async () => {
+    const { initApp } = await import('../src/ui/app.js');
+    const root = document.getElementById('app');
+    initApp(root);
+
+    const playBtn = root.querySelector('[data-role="play-current"]');
+    const retryBtn = root.querySelector('[data-role="retry"]');
+    const grid = root.querySelector('[data-role="char-grid"]');
+    const option = grid.querySelector('[data-role="char-option"]');
+    const { _simulateAudioEnded, getState } = await import('../src/core/quiz.js');
+
+    for (let i = 0; i < 5; i++) {
+      // 1) Click play — should start a fresh question + audio if idle/awaitPick
+      playBtn.click();
+      // 2) Simulate audio end
+      _simulateAudioEnded();
+      await new Promise((r) => setTimeout(r, 0)); // flush microtasks (re-enable button)
+      expect(playBtn.disabled).toBe(false);
+
+      // 3) Pick first option (correct or wrong — doesn't matter for this test)
+      option.click();
+      expect(getState().phase).toBe('answered');
+      expect(playBtn.disabled).toBe(true);
+
+      // 4) Click retry → should be playable again
+      retryBtn.click();
+      await new Promise((r) => setTimeout(r, 0)); // flush microtasks
+      expect(playBtn.disabled).toBe(false);
+    }
+  });
+});

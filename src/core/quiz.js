@@ -4,25 +4,25 @@
  * Phases:
  *   idle          → no question yet
  *   awaitPick     → question loaded, waiting for user (audio not yet played or already ended)
- *   playing       → audio currently playing
+ *   playing       → audio currently playing — user may still click to interrupt
  *   answered      → user has picked; locked until retry/next
  *
  * Public API:
  *   newQuestion({exclude}?)    → pick new (charId, sampleIdx), phase='awaitPick'
  *   playCurrent()             → play current sample; phase flips playing→awaitPick on end
- *   pick(charId)              → judge; phase='answered'; updates score
- *   retry()                   → keep charId, resample idx, reset answered
+ *   pick(charId)              → judge; phase='answered'; updates score; stops audio if playing
+ *   retry()                   → keep charId, keep same sample idx, reset answered
  *   next()                    → newQuestion
  *   hintBand()                → return bandId of current char (no state change)
  *   revealAnswer()            → state.revealed=true (idempotent)
  *
  * Guards:
  *   canPlay()     → phase is idle or awaitPick
- *   canPick()     → phase is awaitPick
+ *   canPick()     → phase is awaitPick OR playing (user clicks always win)
  *   canRetry()    → always true
  *   canNext()     → always true
- *   canHintBand() → phase in {awaitPick, answered} && !revealed
- *   canReveal()   → phase in {awaitPick, answered} && !revealed
+ *   canHintBand() → phase in {awaitPick, playing, answered} && !revealed
+ *   canReveal()   → phase in {awaitPick, playing, answered} && !revealed
  */
 
 import { CHARACTERS } from '../data/characters.js';
@@ -66,6 +66,7 @@ function _pickRandomSample(charId) {
 
 export function newQuestion(opts = {}) {
   const s = _ensure();
+  audioStop();
   const exclude = opts.exclude || [];
   const char = _pickRandomChar(exclude);
   if (!char) {
@@ -78,16 +79,21 @@ export function newQuestion(opts = {}) {
   s.answered = false;
   s.revealed = false;
   s.pickedCharId = null;
+  s._audioCleared = false;
 }
 
 export function playCurrent() {
   const s = _ensure();
-  if (!s.currentCharId || !s.currentSampleIdx) return;
-  if (s.phase !== 'idle' && s.phase !== 'awaitPick') return;
+  if (!s.currentCharId || !s.currentSampleIdx) return Promise.resolve();
+  if (s.phase !== 'idle' && s.phase !== 'awaitPick') return Promise.resolve();
   s.phase = 'playing';
-  playSample(s.currentCharId, s.currentSampleIdx, {
+  s._audioCleared = false;
+  return playSample(s.currentCharId, s.currentSampleIdx, {
     onEnd: () => {
-      if (s.phase === 'playing') {
+      // Late-firing onEnd (e.g., after we forced audioStop() in pick())
+      // must NOT overwrite a phase we've since moved past. Only flip if
+      // we're still genuinely in 'playing'.
+      if (s.phase === 'playing' && !s._audioCleared) {
         s.phase = 'awaitPick';
       }
     },
@@ -108,6 +114,21 @@ export function playCurrent() {
 export function pick(charId) {
   const s = _ensure();
   if (!canPick()) return { correct: false, charId: null };
+  // If the click interrupts audio mid-play, stop the audio first.
+  if (s.phase === 'playing') {
+    audioStop();
+    // Mark audio as already ended so the late-firing onEnd doesn't flip
+    // us back to awaitPick after we've committed to 'answered'.
+    s.phase = 'answered';
+    s.pickedCharId = charId;
+    const correct = charId === s.currentCharId;
+    s.answered = true;
+    if (correct) s.score.correct += 1;
+    else s.score.wrong += 1;
+    // Clear pending audio "playing" state via direct flag for onEnd guard.
+    s._audioCleared = true;
+    return { correct, charId: s.currentCharId };
+  }
   const correct = charId === s.currentCharId;
   s.answered = true;
   s.pickedCharId = charId;
@@ -120,20 +141,14 @@ export function pick(charId) {
 export function retry() {
   const s = _ensure();
   if (!s.currentCharId) return;
-  // Pick a different sample from same character
-  const cur = s.currentSampleIdx;
-  let nextIdx = _pickRandomSample(s.currentCharId);
-  if (nextIdx === cur && SAMPLES[s.currentCharId].length > 1) {
-    // Ensure change when more than 1 sample
-    while (nextIdx === cur) {
-      nextIdx = _pickRandomSample(s.currentCharId);
-    }
-  }
-  s.currentSampleIdx = nextIdx;
+  // Stop any lingering audio from a forced interrupt
+  audioStop();
+  // Keep the same sample so retry plays the same audio as before
   s.phase = 'awaitPick';
   s.answered = false;
   s.revealed = false;
   s.pickedCharId = null;
+  s._audioCleared = false;
 }
 
 export function next() {
@@ -160,7 +175,8 @@ export function canPlay() {
 
 export function canPick() {
   const s = _ensure();
-  return s.phase === 'awaitPick';
+  // User clicks always win — allow picks during playing to interrupt audio.
+  return s.phase === 'awaitPick' || s.phase === 'playing';
 }
 
 export function canRetry() {

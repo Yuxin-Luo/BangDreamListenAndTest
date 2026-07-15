@@ -109,8 +109,13 @@ function _renderQuiz() {
   playBtn.addEventListener('click', () => {
     if (canPlay()) {
       _startNewIfNeeded();
-      playCurrent();
+      const p = playCurrent();
       _updatePlayButton();
+      // When audio ends (or fails), phase flips back to awaitPick —
+      // sync the play button DOM so the user can play again.
+      if (p && typeof p.then === 'function') {
+        p.then(() => _updatePlayButton(), () => _updatePlayButton());
+      }
     }
   });
   top.appendChild(playBtn);
@@ -180,6 +185,7 @@ function _renderQuizBottom() {
     setResult(_quizView, 'correct', { charName: t('common.unknown') }); // clear; will be re-set by play
     const result = _quizView.querySelector('[data-role="result-area"]');
     if (result) { result.hidden = true; result.innerHTML = ''; }
+    _updatePlayButton();
   }));
   wrap.appendChild(mkBtn('next', 'next', () => {
     quizNext();
@@ -252,6 +258,8 @@ function _handlePick(charId) {
     img.src = FAIL_IMAGE;
     result.appendChild(img);
   }
+  // Sync play button DOM — after pick, phase=answered → play button disabled.
+  _updatePlayButton();
 }
 
 function _bandOfChar(charId) {

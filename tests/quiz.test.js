@@ -81,6 +81,36 @@ describe('quiz — playCurrent', () => {
   });
 });
 
+describe('quiz — pick during playing (interrupts audio)', () => {
+  beforeEach(async () => {
+    const mod = await import('../src/core/quiz.js');
+    mod._reset();
+  });
+
+  it('canPick() returns true during playing (user clicks always win)', async () => {
+    const { newQuestion, playCurrent, canPick, getState } = await import('../src/core/quiz.js');
+    newQuestion();
+    playCurrent();
+    expect(getState().phase).toBe('playing');
+    expect(canPick()).toBe(true);
+  });
+
+  it('pick during playing → phase=answered, audio stopped, late onEnd does not flip back', async () => {
+    const { newQuestion, playCurrent, pick, getState } = await import('../src/core/quiz.js');
+    const audioMod = await import('../src/core/audio.js');
+    const stopSpy = vi.spyOn(audioMod, 'stop');
+    newQuestion();
+    playCurrent();
+    expect(getState().phase).toBe('playing');
+    const s = getState();
+    pick(s.currentCharId); // correct during playing
+    expect(getState().phase).toBe('answered');
+    expect(stopSpy).toHaveBeenCalled();
+    expect(getState().answered).toBe(true);
+    stopSpy.mockRestore();
+  });
+});
+
 describe('quiz — pick', () => {
   beforeEach(async () => {
     const mod = await import('../src/core/quiz.js');
@@ -141,14 +171,16 @@ describe('quiz — retry', () => {
     mod._reset();
   });
 
-  it('keeps currentCharId but resamples and resets answered', async () => {
+  it('keeps currentCharId and currentSampleIdx, resets answered', async () => {
     const { newQuestion, pick, retry, getState } = await import('../src/core/quiz.js');
     newQuestion();
     const charId = getState().currentCharId;
+    const sampleIdx = getState().currentSampleIdx;
     pick(charId);
     retry();
     const s = getState();
     expect(s.currentCharId).toBe(charId);
+    expect(s.currentSampleIdx).toBe(sampleIdx); // same audio as before
     expect(s.answered).toBe(false);
     expect(s.revealed).toBe(false);
     expect(s.phase).toBe('awaitPick');
@@ -157,6 +189,24 @@ describe('quiz — retry', () => {
   it('canRetry() is always true', async () => {
     const { canRetry } = await import('../src/core/quiz.js');
     expect(canRetry()).toBe(true);
+  });
+
+  it('survives 5 cycles of pick → retry → canPlay (issue: 3rd+ retry stuck)', async () => {
+    const { newQuestion, playCurrent, pick, retry, canPlay, _simulateAudioEnded, getState } =
+      await import('../src/core/quiz.js');
+    newQuestion();
+    const charId = getState().currentCharId;
+    for (let i = 0; i < 5; i++) {
+      // Play, audio ends, pick, retry — should be playable each round
+      playCurrent();
+      _simulateAudioEnded();
+      expect(canPlay()).toBe(true);
+      pick(charId); // correct
+      expect(getState().phase).toBe('answered');
+      retry();
+      expect(canPlay()).toBe(true);
+      expect(getState().currentCharId).toBe(charId);
+    }
   });
 });
 
