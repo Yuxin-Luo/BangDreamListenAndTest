@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bands>
+  <band id="poppin-party">
+    <name-zh>Poppin'Party</name-zh>
+    <name-en>Poppin'Party</name-en>
+    <name-ja>Poppin'Party</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Poppin%27Party</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Poppin%27Party</desc-source>
+  </band>
+  <band id="afterglow">
+    <name-zh>Afterglow</name-zh>
+    <name-en>Afterglow</name-en>
+    <name-ja>Afterglow</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Afterglow</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Afterglow</desc-source>
+  </band>
+  <band id="pastel-palettes">
+    <name-zh>Pastel*Palettes</name-zh>
+    <name-en>Pastel*Palettes</name-en>
+    <name-ja>Pastel*Palettes</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Pastel*Palettes</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Pastel*Palettes</desc-source>
+  </band>
+  <band id="roselia">
+    <name-zh>Roselia</name-zh>
+    <name-en>Roselia</name-en>
+    <name-ja>Roselia</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Roselia</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Roselia</desc-source>
+  </band>
+  <band id="hhw">
+    <name-zh>Hello, Happy World!</name-zh>
+    <name-en>Hello, Happy World!</name-en>
+    <name-ja>Hello, Happy World!</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Hello,_Happy_World!</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Hello,_Happy_World!</desc-source>
+  </band>
+  <band id="morfonica">
+    <name-zh>Morfonica</name-zh>
+    <name-en>Morfonica</name-en>
+    <name-ja>Morfonica</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Morfonica</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Morfonica</desc-source>
+  </band>
+  <band id="ras">
+    <name-zh>RAISE A SUILEN</name-zh>
+    <name-en>RAISE A SUILEN</name-en>
+    <name-ja>RAISE A SUILEN</name-ja>
+    <source>https://bangdream.fandom.com/wiki/RAISE_A_SUILEN</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/RAISE_A_SUILEN</desc-source>
+  </band>
+  <band id="mygo">
+    <name-zh>MYGO!!!!!</name-zh>
+    <name-en>MYGO!!!!!</name-en>
+    <name-ja>MYGO!!!!!</name-ja>
+    <source>https://bangdream.fandom.com/wiki/MYGO!!!!!</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/MYGO!!!!!</desc-source>
+  </band>
+  <band id="ave-mujica">
+    <name-zh>Ave Mujica</name-zh>
+    <name-en>Ave Mujica</name-en>
+    <name-ja>Ave Mujica</name-ja>
+    <source>https://bangdream.fandom.com/wiki/Ave_Mujica</source>
+    <members>5</members>
+    <desc-source>https://mzh.moegirl.org.cn/Ave_Mujica</desc-source>
+  </band>
+</bands>
