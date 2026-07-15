@@ -3,7 +3,7 @@
 > 本文件做项目文档索引 + 嵌入 Agent 工作规则。
 > 全部项目事实 / 硬约束 / 当前阻塞 / 踩坑历史在：
 >
-> - `docs/superpowers/specs/2026-07-15-bangdream-quiz-design.md` — 设计
+> - `docs/specs/2026-07-15-bangdream-quiz-design.md` — 设计
 > - `dev-docs/09-architecture-2026-07-15.md` — 架构基线 + 关键决策
 > - `dev-docs/10-session-fixes-2026-07-15.md` — 状态机修复 + 模块审计
 
