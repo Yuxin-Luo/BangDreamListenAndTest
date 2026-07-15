@@ -38,11 +38,13 @@ import {
   saveProgress,
   recordAnswer,
 } from '../storage/progress.js';
+import { hasSamples } from '../core/audio.js';
 import { FAIL_IMAGE } from './paths.js';
 
-// Filter out Ave Mujica (no audio) from the band list shown to user
+// Filter out bands that have no playable character (e.g., Ave Mujica has no audio).
+// PLAYABLE_BANDS drives both the band-tab strip and the random-pick pool.
 const PLAYABLE_BANDS = BANDS.filter(b =>
-  b.members.some(id => charactersOfBand(b.id).find(c => c.id === id))
+  b.members.some(id => hasSamples(id))
 );
 const PLAYABLE_BAND_IDS = PLAYABLE_BANDS.map(b => b.id);
 
@@ -188,6 +190,7 @@ function _renderQuizBottom() {
     _updatePlayButton();
   }));
   wrap.appendChild(mkBtn('next', 'next', () => {
+    // 下一题：从所有 8 个有音频的乐队里随机抽(不限定当前乐队)
     quizNext();
     clearMarks(_quizView);
     const result = _quizView.querySelector('[data-role="result-area"]');
@@ -217,6 +220,8 @@ function _renderQuizBottom() {
 
 function _startNewIfNeeded() {
   const s = getState();
+  // Only start a new question if there isn't one already.
+  // (Retry/play reuse the current char; "next" picks from any band.)
   if (!s.currentCharId) {
     newQuestion();
   }

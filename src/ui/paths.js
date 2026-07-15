@@ -33,14 +33,13 @@ export function bandGroupPicUrl(bandId) {
   return `assets/images/band/groupPic/${name}.jpg`;
 }
 
-/** charId → character portrait URL. */
-export function portraitUrl(charId) {
-  // Need the band display name → look up CHARACTERS via import
-  // to avoid circular dep, accept bandName as arg
-  throw new Error('use portraitUrlFor(char, bandName)');
-}
-
-/** Convenience: build portrait URL given character + band. */
+/**
+ * Build portrait URL for a character.
+ *
+ * @param {string} charId  - kebab-case id (filename basename)
+ * @param {string} bandId  - band kebab-case id; only used to look up display dir
+ * @returns {string|null}  - relative URL or null when bandId unknown
+ */
 export function portraitUrlFor(charId, bandId) {
   const name = BAND_DIR[bandId];
   if (!name) return null;

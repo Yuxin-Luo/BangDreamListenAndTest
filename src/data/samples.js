@@ -84,17 +84,3 @@ const SAMPLES_MAP = {
  * 调用方：quiz.js 选择角色后从这里取文件名
  */
 export const SAMPLES = SAMPLES_MAP;
-
-/**
- * 便捷查询：返回有效样本数
- */
-export function sampleCount(charId) {
-  return (SAMPLES_MAP[charId] || []).length;
-}
-
-/**
- * 便捷查询：返回所有有音频的角色 ID 列表
- */
-export function charactersWithAudio() {
-  return Object.keys(SAMPLES_MAP).filter(id => SAMPLES_MAP[id].length > 0);
-}

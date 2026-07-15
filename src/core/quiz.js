@@ -49,10 +49,13 @@ function _ensure() {
   return _state;
 }
 
-function _pickRandomChar(exclude = []) {
-  // Build list of playable characters
+function _pickRandomChar(exclude = [], bandId = null) {
+  // Build list of playable characters. If bandId is given, restrict to that
+  // band so the user can always see + click the answer in the current tab.
   const pool = CHARACTERS.filter(c =>
-    !exclude.includes(c.id) && hasSamples(c.id)
+    !exclude.includes(c.id) &&
+    hasSamples(c.id) &&
+    (bandId === null || c.bandId === bandId)
   );
   if (pool.length === 0) return null;
   return pool[Math.floor(Math.random() * pool.length)];
@@ -68,7 +71,8 @@ export function newQuestion(opts = {}) {
   const s = _ensure();
   audioStop();
   const exclude = opts.exclude || [];
-  const char = _pickRandomChar(exclude);
+  const bandId = opts.bandId || null;
+  const char = _pickRandomChar(exclude, bandId);
   if (!char) {
     console.warn('[quiz] no playable characters');
     return;
@@ -79,7 +83,6 @@ export function newQuestion(opts = {}) {
   s.answered = false;
   s.revealed = false;
   s.pickedCharId = null;
-  s._audioCleared = false;
 }
 
 export function playCurrent() {
@@ -87,19 +90,17 @@ export function playCurrent() {
   if (!s.currentCharId || !s.currentSampleIdx) return Promise.resolve();
   if (s.phase !== 'idle' && s.phase !== 'awaitPick') return Promise.resolve();
   s.phase = 'playing';
-  s._audioCleared = false;
   return playSample(s.currentCharId, s.currentSampleIdx, {
     onEnd: () => {
-      // Late-firing onEnd (e.g., after we forced audioStop() in pick())
-      // must NOT overwrite a phase we've since moved past. Only flip if
-      // we're still genuinely in 'playing'.
-      if (s.phase === 'playing' && !s._audioCleared) {
+      // Only flip if we're still playing. After a pick-during-playing
+      // interrupt, this callback may fire too — but by then phase has
+      // already advanced to 'answered' and the guard skips us.
+      if (s.phase === 'playing') {
         s.phase = 'awaitPick';
       }
     },
     onNotFound: (charId, sampleIdx) => {
       console.warn('[quiz] sample missing', charId, sampleIdx);
-      // Resample this char; if still missing, move on
       const retry = _pickRandomSample(charId);
       if (retry) {
         s.currentSampleIdx = retry;
@@ -114,20 +115,10 @@ export function playCurrent() {
 export function pick(charId) {
   const s = _ensure();
   if (!canPick()) return { correct: false, charId: null };
-  // If the click interrupts audio mid-play, stop the audio first.
+  // If the click interrupts audio mid-play, stop the audio first so the
+  // user doesn't have to wait for the clip to finish.
   if (s.phase === 'playing') {
     audioStop();
-    // Mark audio as already ended so the late-firing onEnd doesn't flip
-    // us back to awaitPick after we've committed to 'answered'.
-    s.phase = 'answered';
-    s.pickedCharId = charId;
-    const correct = charId === s.currentCharId;
-    s.answered = true;
-    if (correct) s.score.correct += 1;
-    else s.score.wrong += 1;
-    // Clear pending audio "playing" state via direct flag for onEnd guard.
-    s._audioCleared = true;
-    return { correct, charId: s.currentCharId };
   }
   const correct = charId === s.currentCharId;
   s.answered = true;
@@ -141,18 +132,15 @@ export function pick(charId) {
 export function retry() {
   const s = _ensure();
   if (!s.currentCharId) return;
-  // Stop any lingering audio from a forced interrupt
-  audioStop();
-  // Keep the same sample so retry plays the same audio as before
+  // Keep the same sample so retry plays the same audio as before.
   s.phase = 'awaitPick';
   s.answered = false;
   s.revealed = false;
   s.pickedCharId = null;
-  s._audioCleared = false;
 }
 
-export function next() {
-  newQuestion();
+export function next(opts = {}) {
+  newQuestion(opts);
 }
 
 export function hintBand() {
