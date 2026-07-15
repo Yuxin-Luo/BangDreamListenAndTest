@@ -35,7 +35,7 @@ export default {
     'pastel-palettes': 'Pastel*Palettes',
     roselia: 'Roselia',
     hhw: 'Hello, Happy World!',
-    morfinica: 'Morfonica',
+    morfonica: 'Morfonica',
     ras: 'RAISE A SUILEN',
     mygo: 'MYGO!!!!!',
     'ave-mujica': 'Ave Mujica',
