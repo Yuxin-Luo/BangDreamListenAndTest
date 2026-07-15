@@ -1,372 +1,366 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <characters>
+  <!-- Bestdori character portrait URL pattern: https://bestdori.com//assets/jp/characterprofile/characterimage_rip/<id>.png -->
+  <!-- IDs 1-40: valid portraits on bestdori. IDs 41-49 (Ave Mujica): no bestdori page, need alt source -->
   <character id="kasumi">
     <band>poppin-party</band>
     <name-zh>香澄</name-zh>
     <name-en>Kasumi Toyama</name-en>
     <name-ja>香澄</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Kasumi_Toyama</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/001.png</portrait-source>
+    <voice-source>NOT FOUND - all bestdori paths return HTML placeholder</voice-source>
   </character>
-  <!-- Poppin'Party: kasumi, tae, rimi, sayaka, arisa -->
   <character id="tae">
     <band>poppin-party</band>
     <name-zh>たえ</name-zh>
     <name-en>Tae Hanazono</name-en>
     <name-ja>たえ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Tae_Hanazono</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/002.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="rimi">
     <band>poppin-party</band>
     <name-zh>りみ</name-zh>
     <name-en>Rimi Ushigome</name-en>
     <name-ja>りみ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Rimi_Ushigome</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/003.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="sayaka">
     <band>poppin-party</band>
     <name-zh>紗綾</name-zh>
     <name-en>Saaya Yamabuki</name-en>
     <name-ja>紗綾</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Saaya_Yamabuki</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/004.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="arisa">
     <band>poppin-party</band>
     <name-zh>有咲</name-zh>
     <name-en>Arisa Ichigaya</name-en>
     <name-ja>有咲</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Arisa_Ichigaya</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/005.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <!-- Afterglow: ran, moca, himari, tsugumi, tomo -->
   <character id="ran">
     <band>afterglow</band>
     <name-zh>蘭</name-zh>
     <name-en>Ran Mitake</name-en>
     <name-ja>蘭</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Ran_Mitake</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/006.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="moca">
     <band>afterglow</band>
     <name-zh>モカ</name-zh>
     <name-en>Moca Aoba</name-en>
     <name-ja>モカ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Moca_Aoba</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/007.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="himari">
     <band>afterglow</band>
     <name-zh>ひまり</name-zh>
     <name-en>Himari Uehara</name-en>
     <name-ja>ひまり</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Himari_Uehara</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="tsugumi">
-    <band>afterglow</band>
-    <name-zh>つぐみ</name-zh>
-    <name-en>Tsugumi Hazawa</name-en>
-    <name-ja>つぐみ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Tsugumi_Hazawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/008.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="tomo">
     <band>afterglow</band>
     <name-zh>巴</name-zh>
     <name-en>Tomo Udagawa</name-en>
     <name-ja>巴</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Tomo_Udagawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/009.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <!-- Pastel*Palettes: aya, chisato, maya, eve, hina -->
-  <character id="aya">
-    <band>pastel-palettes</band>
-    <name-zh>彩</name-zh>
-    <name-en>Aya Maruyama</name-en>
-    <name-ja>彩</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Aya_Maruyama</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+  <character id="tsugumi">
+    <band>afterglow</band>
+    <name-zh>つぐみ</name-zh>
+    <name-en>Tsugumi Hazawa</name-en>
+    <name-ja>つぐみ</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/010.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <character id="chisato">
-    <band>pastel-palettes</band>
-    <name-zh>千聖</name-zh>
-    <name-en>Chisato Shirasagi</name-en>
-    <name-ja>千聖</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Chisato_Shirasagi</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="maya">
-    <band>pastel-palettes</band>
-    <name-zh>マヤ</name-zh>
-    <name-en>Maya Yamato</name-en>
-    <name-ja>マヤ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Maya_Yamato</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="eve">
-    <band>pastel-palettes</band>
-    <name-zh>イヴ</name-zh>
-    <name-en>Eve Wakamiya</name-en>
-    <name-ja>イヴ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Eve_Wakamiya</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="hina">
-    <band>pastel-palettes</band>
-    <name-zh>日菜</name-zh>
-    <name-en>Hina Hikawa</name-en>
-    <name-ja>日菜</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Hina_Hikawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <!-- Roselia: yukina, sayo, lisa, rinko, ako -->
-  <character id="yukina">
-    <band>roselia</band>
-    <name-zh>友希那</name-zh>
-    <name-en>Yukina Minato</name-en>
-    <name-ja>友希那</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Yukina_Minato</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="sayo">
-    <band>roselia</band>
-    <name-zh>紗夜</name-zh>
-    <name-en>Sayo Imai</name-en>
-    <name-ja>紗夜</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Sayo_Imai</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="lisa">
-    <band>roselia</band>
-    <name-zh>リサ</name-zh>
-    <name-en>Lisa Imai</name-en>
-    <name-ja>リサ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Lisa_Imai</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="rinko">
-    <band>roselia</band>
-    <name-zh>燐子</name-zh>
-    <name-en>Rinko Shirokane</name-en>
-    <name-ja>燐子</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Rinko_Shirokane</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <character id="ako">
-    <band>roselia</band>
-    <name-zh>あこ</name-zh>
-    <name-en>Ako Udagawa</name-en>
-    <name-ja>あこ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Ako_Udagawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
-  </character>
-  <!-- Hello, Happy World!: kokoro, kaoru, hagumi, kanon, misaki -->
   <character id="kokoro">
     <band>hhw</band>
     <name-zh>こころ</name-zh>
     <name-en>Kokoro Tsurumaki</name-en>
     <name-ja>こころ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Kokoro_Tsurumaki</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/011.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="kaoru">
     <band>hhw</band>
     <name-zh>薰</name-zh>
     <name-en>Kaoru Seta</name-en>
     <name-ja>薰</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Kaoru_Seta</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/012.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="hagumi">
     <band>hhw</band>
     <name-zh>はぐみ</name-zh>
     <name-en>Hagumi Kitazawa</name-en>
     <name-ja>はぐみ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Hagumi_Kitazawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/013.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="kanon">
     <band>hhw</band>
     <name-zh>花音</name-zh>
     <name-en>Kanon Matsubara</name-en>
     <name-ja>花音</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Kanon_Matsubara</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/014.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="misaki">
     <band>hhw</band>
     <name-zh>みさき</name-zh>
     <name-en>Misaki Okusawa</name-en>
     <name-ja>みさき</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Misaki_Okusawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/015.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <!-- Morfonica: mashiro, touko, nanami, tsukushi, rui -->
+  <character id="aya">
+    <band>pastel-palettes</band>
+    <name-zh>彩</name-zh>
+    <name-en>Aya Maruyama</name-en>
+    <name-ja>彩</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/016.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="hina">
+    <band>pastel-palettes</band>
+    <name-zh>日菜</name-zh>
+    <name-en>Hina Hikawa</name-en>
+    <name-ja>日菜</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/017.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="chisato">
+    <band>pastel-palettes</band>
+    <name-zh>千聖</name-zh>
+    <name-en>Chisato Shirasagi</name-en>
+    <name-ja>千聖</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/018.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="maya">
+    <band>pastel-palettes</band>
+    <name-zh>マヤ</name-zh>
+    <name-en>Maya Yamato</name-en>
+    <name-ja>マヤ</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/019.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="eve">
+    <band>pastel-palettes</band>
+    <name-zh>イヴ</name-zh>
+    <name-en>Eve Wakamiya</name-en>
+    <name-ja>イヴ</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/020.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="yukina">
+    <band>roselia</band>
+    <name-zh>友希那</name-zh>
+    <name-en>Yukina Minato</name-en>
+    <name-ja>友希那</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/021.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="sayo">
+    <band>roselia</band>
+    <name-zh>紗夜</name-zh>
+    <name-en>Sayo Hikawa</name-en>
+    <name-ja>紗夜</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/022.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="lisa">
+    <band>roselia</band>
+    <name-zh>リサ</name-zh>
+    <name-en>Lisa Imai</name-en>
+    <name-ja>リサ</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/023.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="ako">
+    <band>roselia</band>
+    <name-zh>あこ</name-zh>
+    <name-en>Ako Udagawa</name-en>
+    <name-ja>あこ</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/024.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
+  <character id="rinko">
+    <band>roselia</band>
+    <name-zh>燐子</name-zh>
+    <name-en>Rinko Shirokane</name-en>
+    <name-ja>燐子</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/025.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
+  </character>
   <character id="mashiro">
     <band>morfonica</band>
     <name-zh>ましろ</name-zh>
     <name-en>Mashiro Kurata</name-en>
     <name-ja>ましろ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Mashiro_Kurata</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/026.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="touko">
     <band>morfonica</band>
     <name-zh>灯織</name-zh>
-    <name-en>Touko Kirigaya</name-en>
+    <name-en>Toko Kirigaya</name-en>
     <name-ja>灯織</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Touko_Kirigaya</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/027.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="nanami">
     <band>morfonica</band>
     <name-zh>七深</name-zh>
     <name-en>Nanami Hiromachi</name-en>
     <name-ja>七深</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Nanami_Hiromachi</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/028.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="tsukushi">
     <band>morfonica</band>
     <name-zh>つくし</name-zh>
     <name-en>Tsukushi Futaba</name-en>
     <name-ja>つくし</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Tsukushi_Futaba</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/029.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="rui">
     <band>morfonica</band>
     <name-zh>瑠唯</name-zh>
     <name-en>Rui Yashio</name-en>
     <name-ja>瑠唯</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Rui_Yashio</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/030.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <!-- RAISE A SUILEN: laying, lock, mashu, pareo, reona -->
   <character id="laying">
     <band>ras</band>
     <name-zh>LAYER</name-zh>
     <name-en>LAYER</name-en>
     <name-ja>LAYER</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/LAYER</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/031.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="lock">
     <band>ras</band>
     <name-zh>LOCK</name-zh>
     <name-en>LOCK</name-en>
     <name-ja>LOCK</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/LOCK</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/032.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="mashu">
     <band>ras</band>
     <name-zh>MASHU</name-zh>
-    <name-en>MASHU</name-en>
-    <name-ja>MASHU</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/MASHU</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <name-en>MASKING</name-en>
+    <name-ja>MASKING</name-ja>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/033.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="pareo">
     <band>ras</band>
     <name-zh>PAREO</name-zh>
     <name-en>PAREO</name-en>
     <name-ja>PAREO</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/PAREO</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/034.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="reona">
     <band>ras</band>
     <name-zh>CHU²</name-zh>
     <name-en>CHU²</name-en>
     <name-ja>CHU²</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/CHU%C2%B2</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/035.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <!-- MYGO!!!!!: anon, tomori, raana, soyo, taki -->
   <character id="anon">
     <band>mygo</band>
     <name-zh>あの</name-zh>
     <name-en>Anon Chihaya</name-en>
     <name-ja>あの</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Anon_Chihaya</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/036.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="tomori">
     <band>mygo</band>
     <name-zh>灯</name-zh>
     <name-en>Tomori Takamatsu</name-en>
     <name-ja>灯</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Tomori_Takamatsu</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/037.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="raana">
     <band>mygo</band>
     <name-zh>楽奈</name-zh>
-    <name-en>Raana Kaname</name-en>
+    <name-en>Rana Kaname</name-en>
     <name-ja>楽奈</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Raana_Kaname</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/038.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="soyo">
     <band>mygo</band>
     <name-zh>そよ</name-zh>
     <name-en>Soyo Nagasaki</name-en>
     <name-ja>そよ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Soyo_Nagasaki</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/039.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="taki">
     <band>mygo</band>
     <name-zh>立希</name-zh>
-    <name-en>Taki Shiina</name-en>
+    <name-en>Taki Shina</name-en>
     <name-ja>立希</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Taki_Shiina</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>https://bestdori.com//assets/jp/characterprofile/characterimage_rip/040.png</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
-  <!-- Ave Mujica: sakiko, mutsumi, umiri, nyamu, togawa -->
+  <!-- Ave Mujica - IDs 41-49 have no bestdori page -->
   <character id="sakiko">
     <band>ave-mujica</band>
     <name-zh>さきこ</name-zh>
     <name-en>Sakiko Togawa</name-en>
     <name-ja>さきこ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Sakiko_Togawa</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>NOT FOUND - no bestdori page (ID 41-49 return generic page)</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="mutsumi">
     <band>ave-mujica</band>
     <name-zh>むつみ</name-zh>
     <name-en>Mutsumi Wakaba</name-en>
     <name-ja>むつみ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Mutsumi_Wakaba</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>NOT FOUND - no bestdori page</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="umiri">
     <band>ave-mujica</band>
     <name-zh>うみり</name-zh>
     <name-en>Umiri Yahata</name-en>
     <name-ja>うみり</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Umiri_Yahata</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>NOT FOUND - no bestdori page</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="nyamu">
     <band>ave-mujica</band>
     <name-zh>にゃむ</name-zh>
     <name-en>Nyamu Yutenji</name-en>
     <name-ja>にゃむ</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Nyamu_Yutenji</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>NOT FOUND - no bestdori page</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
   <character id="togawa">
     <band>ave-mujica</band>
     <name-zh>戸川</name-zh>
     <name-en>Togawa (Sakiko family)</name-en>
     <name-ja>戸川</name-ja>
-    <portrait-source>https://bangdream.fandom.com/wiki/Togawa_(Sakiko_family)</portrait-source>
-    <voice-source>https://bestdori.com/tool/voice</voice-source>
+    <portrait-source>NOT FOUND - no bestdori page</portrait-source>
+    <voice-source>NOT FOUND</voice-source>
   </character>
 </characters>

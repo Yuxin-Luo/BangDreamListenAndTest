@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bands>
+  <!-- bestdori band icon URL pattern: https://bestdori.com/assets/jp/band_<id>.png -->
+  <!-- NOTE: All bestdori band_*.png return the same placeholder image (14084 bytes, MD5: 7d477c21c4c79ed1a6ec7cf89fc6aea9) -->
+  <!-- Need alternative source for actual band logos -->
   <band id="poppin-party">
     <name-zh>Poppin'Party</name-zh>
     <name-en>Poppin'Party</name-en>
@@ -7,6 +10,7 @@
     <source>https://bangdream.fandom.com/wiki/Poppin%27Party</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Poppin%27Party</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="afterglow">
     <name-zh>Afterglow</name-zh>
@@ -15,6 +19,7 @@
     <source>https://bangdream.fandom.com/wiki/Afterglow</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Afterglow</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="pastel-palettes">
     <name-zh>Pastel*Palettes</name-zh>
@@ -23,6 +28,7 @@
     <source>https://bangdream.fandom.com/wiki/Pastel*Palettes</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Pastel*Palettes</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="roselia">
     <name-zh>Roselia</name-zh>
@@ -31,6 +37,7 @@
     <source>https://bangdream.fandom.com/wiki/Roselia</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Roselia</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="hhw">
     <name-zh>Hello, Happy World!</name-zh>
@@ -39,6 +46,7 @@
     <source>https://bangdream.fandom.com/wiki/Hello,_Happy_World!</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Hello,_Happy_World!</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="morfonica">
     <name-zh>Morfonica</name-zh>
@@ -47,6 +55,7 @@
     <source>https://bangdream.fandom.com/wiki/Morfonica</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Morfonica</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="ras">
     <name-zh>RAISE A SUILEN</name-zh>
@@ -55,6 +64,7 @@
     <source>https://bangdream.fandom.com/wiki/RAISE_A_SUILEN</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/RAISE_A_SUILEN</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="mygo">
     <name-zh>MYGO!!!!!</name-zh>
@@ -63,6 +73,7 @@
     <source>https://bangdream.fandom.com/wiki/MYGO!!!!!</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/MYGO!!!!!</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
   <band id="ave-mujica">
     <name-zh>Ave Mujica</name-zh>
@@ -71,5 +82,6 @@
     <source>https://bangdream.fandom.com/wiki/Ave_Mujica</source>
     <members>5</members>
     <desc-source>https://mzh.moegirl.org.cn/Ave_Mujica</desc-source>
+    <logo-source>NOT FOUND - bestdori placeholder only</logo-source>
   </band>
 </bands>
