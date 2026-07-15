@@ -1,0 +1,16 @@
+{
+  "name": "bangdream-quiz",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "BanG Dream 听声音猜角色测试（zh/en/ja）",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0",
+    "happy-dom": "^14.0.0"
+  }
+}
