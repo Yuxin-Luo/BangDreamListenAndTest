@@ -1,5 +1,5 @@
 /**
- * App entry. Imports initApp from ui/app.js (Task 8 stub for now).
+ * App entry. Boots i18n, mounts the app, handles fatal errors.
  */
 
 function showBootError(err) {
@@ -16,14 +16,27 @@ function showBootError(err) {
   document.body.prepend(banner);
 }
 
-function boot() {
+async function boot() {
   try {
-    // ui/app.js 的 initApp() 在 Task 8 接入。当前 Task 1 只做 i18n 初始化 + DOM 占位。
     const { initI18n, applyTranslations, cycleLocale } = await import('./i18n/index.js');
     initI18n();
     applyTranslations();
+
     const sw = document.querySelector('[data-i18n-lang-switch]');
     if (sw) sw.addEventListener('click', cycleLocale);
+
+    const { initApp } = await import('./ui/app.js');
+    const root = document.getElementById('app');
+    if (root) initApp(root);
+
+    // Top-level tab buttons — dispatch via app module
+    document.querySelectorAll('[data-tab-target]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const target = btn.getAttribute('data-tab-target');
+        const { switchTab } = await import('./ui/app.js');
+        switchTab(target);
+      });
+    });
   } catch (err) {
     showBootError(err);
   }

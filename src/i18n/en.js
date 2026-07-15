@@ -1,4 +1,7 @@
 export default {
+  app: {
+    title: 'BanG Dream Voice Quiz',
+  },
   language: {
     switchTo: 'Switch to English',
     label: 'EN',

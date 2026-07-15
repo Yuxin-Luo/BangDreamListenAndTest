@@ -1,4 +1,7 @@
 export default {
+  app: {
+    title: 'BanG Dream 听声音猜角色',
+  },
   language: {
     switchTo: '切到英语',
     label: '中',

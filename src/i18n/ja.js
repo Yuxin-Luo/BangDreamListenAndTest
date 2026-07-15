@@ -1,4 +1,7 @@
 export default {
+  app: {
+    title: 'BanG Dream 声でキャラクター当て',
+  },
   language: {
     switchTo: '日本語に切替',
     label: '日',

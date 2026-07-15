@@ -2,10 +2,19 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>BanG Dream 听声音猜角色</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="app.title">BanG Dream 听声音猜角色</title>
+  <link rel="stylesheet" href="src/ui/main.css">
 </head>
 <body>
-  <button data-i18n-lang-switch data-i18n="language.switchTo">切到英语</button>
+  <header class="top-bar">
+    <div class="top-tabs">
+      <button class="top-tab" data-tab-target="quiz" data-i18n="tab.quiz">🎵 听声音猜角色</button>
+      <button class="top-tab" data-tab-target="intro" data-i18n="tab.intro">📖 乐队·角色介绍</button>
+    </div>
+    <button class="lang-switch" data-i18n-lang-switch data-i18n="language.switchTo">切到英语</button>
+  </header>
+  <main id="app" class="app-root"></main>
   <script type="module" src="src/main.js"></script>
 </body>
 </html>
