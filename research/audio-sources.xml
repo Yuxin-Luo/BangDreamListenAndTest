@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audio-sources>
+  <!--
+    音频资源来源调查（2026-07-15）
+    结论：所有已知源均无法提供可下载的 BanG Dream 角色语音 MP3。
+    详见 dev-docs/05-audio-source-survey-2026-07-15.md
+  -->
+
+  <!-- bestdori.com — 已确认失效 -->
+  <source id="bestdori-voice">
+    <name>bestdori.com</name>
+    <url-pattern>https://bestdori.com/sound/voice/character/{id}.mp3</url-pattern>
+    <status>FAILED</status>
+    <note>HTTP 200 但返回 HTML 错误页（内容非 MP3）</note>
+  </source>
+
+  <!-- bestdori.com 备用路径 — 已确认失效 -->
+  <source id="bestdori-voice-alt">
+    <name>bestdori.com (备用路径)</name>
+    <url-pattern>https://bestdori.com/sound/vo/{id}_01.mp3</url-pattern>
+    <status>FAILED</status>
+    <note>同样返回 HTML 占位符</note>
+  </source>
+
+  <!-- 百度百科 — 强反爬，无法获取 -->
+  <source id="baidu-baike">
+    <name>百度百科</name>
+    <url>https://baike.baidu.com/item/BanG%20Dream!/19290509</url>
+    <status>FAILED</status>
+    <note>安全验证拦截，返回空壳页面，无音频内容</note>
+  </source>
+
+  <!-- BWIKI (wiki.biligame.com) — 页面无 mp3 链接 -->
+  <source id="bwiki">
+    <name>Bilibili Wiki (BWIKI)</name>
+    <url-pattern>https://wiki.biligame.com/bangdream/{character}</url>
+    <status>FAILED</status>
+    <note>页面无 .mp3 链接，只有文本和图片</note>
+  </source>
+
+  <!-- 萌娘百科 — 403 Forbidden -->
+  <source id="moegirl">
+    <name>萌娘百科</name>
+    <url>https://mzh.moegirl.org.cn/BanG%20Dream!</url>
+    <status>FAILED</status>
+    <note>HTTP 403 Forbidden</note>
+  </source>
+
+  <!-- bangdream.fandom.com — 402 -->
+  <source id="fandom">
+    <name>bangdream.fandom.com</name>
+    <url-pattern>https://bangdream.fandom.com/wiki/{character}</url>
+    <status>FAILED</status>
+    <note>HTTP 402 Payment Required</note>
+  </source>
+
+  <!-- GitHub — 无音频文件，只有代码/数据 -->
+  <source id="github-bandori-pet">
+    <name>HELPMEEADICE/BANDORI-PET-REV</name>
+    <url>https://github.com/HELPMEEADICE/BANDORI-PET-REV</url>
+    <status>NO_AUDIO</status>
+    <note>有角色 ID 映射但无音频文件（327 stars，最接近的仓库）</note>
+  </source>
+
+  <source id="github-bangdream-data-api">
+    <name>BandoriDatabase/bangdream-data-api</name>
+    <url>https://github.com/BandoriDatabase/bangdream-data-api</url>
+    <status>NO_AUDIO</status>
+    <note>data 目录为空，无音频</note>
+  </source>
+
+  <!-- YouTube — 无法自动化获取 -->
+  <source id="youtube">
+    <name>YouTube</name>
+    <url>https://www.youtube.com/results?search_query=bandori+character+voice</url>
+    <status>UNABLE_TO_AUTOMATE</status>
+    <note>需要 JS 渲染，curl 无法获取内容</note>
+  </source>
+
+  <!-- Bilibili — 需要登录 -->
+  <source id="bilibili">
+    <name>Bilibili</name>
+    <url>https://www.bilibili.com</url>
+    <status>UNABLE_TO_AUTOMATE</status>
+    <note>API 返回分类结果而非音频，需要登录 + referer 检查</note>
+  </source>
+
+  <!-- 备选推荐（非自动化方案） -->
+  <recommendation priority="1">
+    <method>手动录制/提取</method>
+    <description>从游戏内或官方视频提取音轨，再切分为角色样本</description>
+  </recommendation>
+  <recommendation priority="2">
+    <method>众包采集</method>
+    <description>发动社区成员贡献语音样本，建立共享音频库</description>
+  </recommendation>
+  <recommendation priority="3">
+    <method>官方授权</method>
+    <description>联系 Bushiroad 申请非商业用途授权或购买官方语音集 CD</description>
+  </recommendation>
+  <recommendation priority="4">
+    <method>游戏 APK 解包</method>
+    <description>解包游戏 APK 中的语音资源（需 Android 模拟器 + apktool），难度高</description>
+  </recommendation>
+</audio-sources>
